@@ -1,0 +1,136 @@
+body{
+    margin:0;
+    padding: 0;
+}
+.part{
+    width: 100%;
+    height: 650px;
+}
+.home{
+    position: fixed;
+}
+.content{
+    position: absolute;
+    margin-top: 40%;
+    width: 100%;
+}
+.mobil{
+    width: 100%;
+    background-color: #2196F3;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.about{
+    height: 300px;
+    background-color: black;
+}
+
+/*==== Navbar ====*/
+.nav{
+    z-index: 1;
+    width: 100%;
+    position: fixed;
+    background-color: #fff;
+    color:black;
+}
+
+.nav a{
+    color:black;
+}
+
+/*==== SLIDER ====*/
+.slider {
+    margin-top: 3.7%;
+    width: 100%;
+    height: 500px;
+    padding-top: 150px;
+    z-index: 10;
+    background-color: #FF8F00;
+}
+
+.slider .jumbotron {
+    width: 100%;
+    text-align: center;
+    color: #000;
+    background: none;    
+}
+
+.slider .jumbotron h2 {
+    font-weight: bold;
+}
+
+.slider .jumbotron p {
+    font-weight: 100;
+    font-size: 16px;
+}
+
+a.btn {
+    font-size: 15px;
+    font-weight: bold;
+    background: #FFB300;
+    border: 2px solid #FFB300;
+    padding: 10px 30px;
+    margin-top: 2%;
+    color: #fff;
+    transition: 0.2s all;
+}
+
+a.btn:hover {    
+    background-color: #01579B;
+    border: 2px solid #01579B;
+    color: #fff;
+}
+
+.down{
+    text-align: center;
+    box-shadow: 0px -7.8px 15px #333;
+    background-color: white;
+    padding-bottom: 4%;
+}
+
+.thumbnail{
+    height: 300px;
+    text-align: left;
+    box-shadow: 2px 2px 2px solid black;
+}
+a:hover .thumbnail {
+    margin-bottom: 10px;
+}
+.thumbnail a, .thumbnail a:hover{
+    color:black;
+}
+.caption h4{
+    margin:0;
+    font-weight: bold;
+}
+.gambar {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gambar > img{
+    max-height: 100%;
+    max-width: 100%;
+}
+p.tahun{
+    height: 20px;
+    color:#37B0E9;
+    font-size: 12px;
+    text-align: left;
+    padding-left: 9px;
+}
+p.tarif{
+    height: 20px;
+    font-size:12px;
+    text-decoration: none;
+    text-align: right;
+    padding-right: 9px;
+    color: black;
+}
+.merk{
+    margin-top: -1px;
+    margin-bottom: 25px;
+    font-size: 10px;
+}
