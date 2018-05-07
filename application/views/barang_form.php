@@ -1,37 +1,3 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>      
-		  </button>
-    <div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="<?php echo site_url('Barang/home')?>">&ensp;&ensp;&ensp;&ensp;Home</a></li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">&ensp;&ensp;&ensp;&ensp;Barang<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-            <li><a href="<?php echo site_url('Barang/create')?>">Buat barang baru</a></li>
-            <li><a href="<?php echo site_url('Barang')?>">list barang</a></li>
-          </ul>
-        </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<br />
-<br />
-<br />
-
-<h1 align="center" class="style2"><span class="navbar-inverse "><span class="text-danger style9">Daftar Barang</span></h1>
-
-<br />
-<br />
-
-
 
 <div class="container-fluid">
 <div class="transbox">
@@ -80,11 +46,4 @@
 </div>
 </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 

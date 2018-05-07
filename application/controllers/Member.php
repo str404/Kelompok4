@@ -7,7 +7,6 @@
 		// $this->load->model('Category_model');
 		$this->load->helper(array('url','form'));
 		$this->load->library('form_validation');
- 
 		}
 
 		public function create(){
@@ -21,9 +20,9 @@
         $this->form_validation->set_rules('prioritas','Prioritas','required');
 
 		if ($this->form_validation->run()==false) {
-			$this->load->view('template/header');
+			$this->load->view('template/header1');
 			$this->load->view('member_form');
-			$this->load->view('template/footer');
+			$this->load->view('template/footer1');
 		}else{
 		// $config['upload_path']          = 'assets/gambar/upload';
   //       $config['allowed_types']        = 'gif|jpg|png';
@@ -66,19 +65,19 @@
 
             $x['data']=$this->member_data->show_member();
 
-            $this->load->view("template/header");
+            $this->load->view("template/header1");
             $this->load->view('member_view',$x);
-            $this->load->view("template/footer");
+            $this->load->view("template/footer1");
 
-      }
+    }
 
 
     function edit($id){
     $where = array('id_member' => $id);
     $x['data'] = $this->member_data->edit_data($where,'member')->result();
-    $this->load->view("template/header");
+    $this->load->view("template/header1");
     $this->load->view('member_edit',$x);
-    $this->load->view("template/footer");
+    $this->load->view("template/footer1");
 	}
 
 	function update(){
@@ -95,8 +94,7 @@
     $data = array(
         'nama' => $nama,
         'tgl_lahir' => $tgl_lahir,
-        'alamat' => $alamat
-        ,
+        'alamat' => $alamat,
         'jenis_kelamin' => $jenis_kelamin,
         'no_telp' => $no_telp,
         'username' => $username,

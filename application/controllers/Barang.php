@@ -7,8 +7,11 @@
 		// $this->load->model('Category_model');
 		$this->load->helper(array('url','form'));
 		$this->load->library('form_validation');
- 
 		}
+
+        public function home(){
+        $this->load->view('home');
+        }
 
 		public function create(){
 		$this->form_validation->set_rules('nama_barang','Nama_Barang','required');
@@ -18,9 +21,9 @@
 		$this->form_validation->set_rules('ukuran','Ukuran','required');
 
 		if ($this->form_validation->run()==false) {
-			$this->load->view('template/header');
+			$this->load->view('template/header1');
 			$this->load->view('barang_form');
-			$this->load->view('template/footer');
+			$this->load->view('template/footer1');
 		}else{
 		$config['upload_path']          = 'assets/gambar/upload';
         $config['allowed_types']        = 'gif|jpg|png';
@@ -61,9 +64,9 @@
 
             $x['data']=$this->barang_data->show_barang();
 
-            $this->load->view("template/header");
+            $this->load->view("template/header1");
             $this->load->view('barang_view',$x);
-            $this->load->view("template/footer");
+            $this->load->view("template/footer1");
 
       }
 
@@ -71,9 +74,9 @@
     function edit($id){
     $where = array('id_barang' => $id);
     $x['data'] = $this->barang_data->edit_data($where,'barang')->result();
-    $this->load->view("template/header");
+    $this->load->view("template/header1");
     $this->load->view('barang_edit',$x);
-    $this->load->view("template/footer");
+    $this->load->view("template/footer1");
 	}
 
 	function update(){
