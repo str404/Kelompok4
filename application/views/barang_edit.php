@@ -1,37 +1,3 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>      
-		  </button>
-    <div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><img src="<?php echo base_url('assets/gambar/str/1.jpg"  alt="#" width="70" height"50"')?>" ></li>
-          <li><a href="<?php echo site_url('Welcome/Tugas')?>">&ensp;&ensp;&ensp;&ensp;Home</a></li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">&ensp;&ensp;&ensp;&ensp;Barang<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-            <li><a href="<?php echo site_url('Barang/create')?>">Buat barang baru</a></li>
-            <li><a href="<?php echo site_url('Barang')?>">list barang</a></li>
-          </ul>
-        </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<br />
-<br />
-<br />
-
-<h1 align="center" class="style2"><span class="navbar-inverse "><span class="text-danger style9">Blog</span></h1>
-
-<br />
-<br />
-
 
 
 <div class="container-fluid">
@@ -40,10 +6,10 @@
   <p align="center">
     <center>
 		<h1>Silahkan edit barang</h1>
-		<h3>Edit barang </h3>
 	</center>
 	<?php foreach($data as $i){ ?>
 	<form action="<?php echo base_url(). 'Barang/update'; ?>" method="post" enctype ="multipart/form-data">
+	<input type="hidden" name="gambar" value="<?php echo $i->gambar ?>">
 		<table style="margin:20px auto;">
 			<tr>
 				<td>Nama Barang :</td><br>
@@ -81,14 +47,6 @@
 </div>
 </div>
 </div>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 <?php } ?>
 

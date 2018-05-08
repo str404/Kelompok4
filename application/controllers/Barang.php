@@ -87,12 +87,29 @@
     $penjelasan = $this->input->post('penjelasan');
     $ukuran = $this->input->post('ukuran');
 
+    $config['upload_path']          = 'assets/gambar/upload';
+    $config['allowed_types']        = 'gif|jpg|png';
+    $this->load->library('upload', $config);
+
+    if (file_exists('./assets/gambar/upload/'.$this->input->post('gambar'))) {
+        unlink('./assets/gambar/upload/'.$this->input->post('gambar'));
+    }
+
+     if ( ! $this->upload->do_upload('userfile'))
+                {
+                        $error = array('error' => $this->upload->display_errors());
+                }
+                else
+                {
+                        $data = array('upload_data' => $this->upload->data());
+
     $data = array(
         'nama_barang' => $nama_barang,
         'harga' => $harga,
         'tipe' => $tipe,
         'penjelasan' => $penjelasan,
-        'ukuran' => $ukuran
+        'ukuran' => $ukuran,
+        'gambar' => $this->upload->data('file_name')
     );
 
     $where = array(
@@ -101,6 +118,7 @@
 
     $this->barang_data->update_data($where,$data,'barang');
     redirect('Barang');
+    }
 	}
 
 	function hapus($id){
