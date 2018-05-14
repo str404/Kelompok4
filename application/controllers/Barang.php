@@ -4,7 +4,7 @@
 	 	function __construct(){
 		parent::__construct();		
 		$this->load->model('barang_data');
-		// $this->load->model('Category_model');
+		$this->load->model('kategori_data');
 		$this->load->helper(array('url','form'));
 		$this->load->library('form_validation');
 		}
@@ -14,6 +14,7 @@
         }
 
 		public function create(){
+            $data['dropdown'] = $this -> kategori_data -> dropdown();
 		$this->form_validation->set_rules('nama_barang','Nama_Barang','required');
 		$this->form_validation->set_rules('harga','Harga','required');
 		$this->form_validation->set_rules('tipe','Tipe','required');
@@ -22,7 +23,7 @@
 
 		if ($this->form_validation->run()==false) {
 			$this->load->view('template/header1');
-			$this->load->view('barang_form');
+			$this->load->view('barang_form', $data);
 			$this->load->view('template/footer1');
 		}else{
 		$config['upload_path']          = 'assets/gambar/upload';
@@ -47,7 +48,7 @@
 		$data = array(
 			'nama_barang' => $this->input->post('nama_barang'),
 			'harga' => $this->input->post('harga'),
-			'tipe' => $this->input->post('tipe'),
+			'id_kategori' => $this->input->post('kategori'),
 			'penjelasan' => $this->input->post('penjelasan'),
 			'ukuran' => $this->input->post('ukuran'),
 			'gambar' => $this->upload->data('file_name')
@@ -61,8 +62,10 @@
 	public function index(){
 
             $this->load->model('barang_data');
+            $this->load->model('kategori_data');
 
             $x['data']=$this->barang_data->show_barang();
+            $x['data']=$this->kategori_data->get_article_join();
 
             $this->load->view("template/header1");
             $this->load->view('barang_view',$x);
@@ -72,6 +75,7 @@
 
 
     function edit($id){
+    $x['dropdown'] = $this -> kategori_data -> dropdown();
     $where = array('id_barang' => $id);
     $x['data'] = $this->barang_data->edit_data($where,'barang')->result();
     $this->load->view("template/header1");
@@ -83,7 +87,7 @@
     $id = $this->input->post('id_barang');
     $nama_barang = $this->input->post('nama_barang');
     $harga = $this->input->post('harga');
-    $tipe = $this->input->post('tipe');
+    $id_kategori = $this->input->post('kategori');
     $penjelasan = $this->input->post('penjelasan');
     $ukuran = $this->input->post('ukuran');
 
@@ -106,7 +110,7 @@
     $data = array(
         'nama_barang' => $nama_barang,
         'harga' => $harga,
-        'tipe' => $tipe,
+        'id_kategori' => $id_kategori,
         'penjelasan' => $penjelasan,
         'ukuran' => $ukuran,
         'gambar' => $this->upload->data('file_name')

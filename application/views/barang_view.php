@@ -74,7 +74,7 @@
       <hr>
       <p class=""> <img src="<?php echo base_url().'assets/gambar/upload/'.$i->gambar ?>" alt="#" height="300" width="300')?>" > </p>
       <p class="">Harga : <?php echo $i->harga ?> </p>
-      <p class="">Tipe : <?php echo $i->tipe ?> </p>
+      <p class="">Tipe : <?php echo $i->nama_kategori ?> </p>
       <p class="">Ukuran : <?php echo $i->ukuran ?> </p>
       <p class="">Keterangan :<br> <?php echo $i->penjelasan ?> </p>
       <a href="<?php echo site_url ('Barang/hapus/'.$i->id_barang); ?>" class="btn btn-danger btn-xs pull-right" role="button">Delete </i></a>

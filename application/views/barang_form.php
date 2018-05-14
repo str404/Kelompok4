@@ -20,7 +20,7 @@
 			</tr>
 			<tr style="height: 50px;">
 				<td>Tipe :</td>
-				<td><input type="text" name="tipe" value="<?php echo set_value('tipe') ?>"></td>
+				<td><?php echo form_dropdown('kategori', $dropdown, set_value('kategori'), 'class="form-control" required'); ?></td>
 			</tr>
 			<tr style="height: 50px;">
 				<td>Keterangan :</td>

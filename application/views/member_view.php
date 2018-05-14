@@ -86,7 +86,7 @@
 
                         <td><?php echo $password;?> </td>
 
-                        <td><a href="<?php echo site_url ('Member/hapus/'.$id_member); ?>" class="btn btn-danger btn-xs pull-right" role="button">Delete </i></a>
+                        <td><a href="<?php echo site_url ('Member/hapus/'.$id_member); ?>" class="btn btn-danger btn-xs pull-right" role="button">Delete </i></a><br><br>&ensp;
       <a href=" <?php echo site_url('Member/edit/'.$id_member); ?>" class="btn btn-primary btn-xs" role="button">Edit </i></a></td>
 
                   </tr>
