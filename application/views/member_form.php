@@ -7,7 +7,7 @@
 		<h1>Silahkan menambah Member baru</h1>
 		<h3>Tambah Member baru</h3>
 	</center>
-  <?php echo form_open('Member/create',  array('class' => 'needs-validation', 'novalidate' => '') ); ?>
+  <?php echo form_open('User/create',  array('class' => 'needs-validation', 'novalidate' => '') ); ?>
 	<?php echo validation_errors()?>	
     <table style="margin:20px auto;">
 			<tr style="height: 50px;">
@@ -16,7 +16,7 @@
 			</tr>
 			<tr style="height: 50px;">
 				<td>Tanggal lahir : </td>
-				<td><input type="text" name="tgl_lahir" value="<?php echo set_value('tgl_lahir') ?>"></td>
+				<td><input type="date" name="tgl_lahir" value="<?php echo set_value('tgl_lahir') ?>"></td>
 			</tr>
 			<tr style="height: 50px;">
 				<td>Alamat : </td>
@@ -39,8 +39,20 @@
         		<td><input type="text" name="password" value="<?php echo set_value('password') ?>"></td>
       		</tr>
       		<tr style="height: 50px;">
+      			<div class="form-group">
         		<td>Prioritas : </td>
-        		<td><input type="text" name="prioritas" value="<?php echo set_value('prioritas') ?>"></td>
+        		 	<div class="form-check">
+        		<td><input class="form-check-input" type="radio" name="id_level" id="freemember" value="3" checked>
+        			<label class="form-check-label" for="freemember">free Member</label>
+        			</div>
+        			<br>
+        			<div class="form-check">
+        			<input class="form-check-input" type="radio" name="id_level" id="paidmember" value="2">
+        			<label class="form-check-label" for="paidmember">Paid Member</label>
+        			</div>
+    </div>
+    </div>
+</td>
       		</tr>
 			<tr>
 				<td></td>

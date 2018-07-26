@@ -29,7 +29,7 @@
 
                         <td>Password</td>
 
-                        <td>Prioritas</td>
+                        <td>id_level</td>
 
                         <td>action</td>
 
@@ -60,7 +60,7 @@
 
                               $password=$i['password'];
 
-                              $prioritas=$i['prioritas'];
+                              $id_level=$i['id_level'];
 
 
 
@@ -80,13 +80,13 @@
 
                         <td><?php echo $no_telp;?> </td>
 
-                        <td><?php echo $no_telp;?> </td>
-
                         <td><?php echo $username;?> </td>
 
                         <td><?php echo $password;?> </td>
 
-                        <td><a href="<?php echo site_url ('Member/hapus/'.$id_member); ?>" class="btn btn-danger btn-xs pull-right" role="button">Delete </i></a>
+                        <td><?php echo $id_level;?> </td>
+
+                        <td><a href="<?php echo site_url ('Member/hapus/'.$id_member); ?>" class="btn btn-danger btn-xs pull-right" role="button">Delete </i></a><br><br>&ensp;
       <a href=" <?php echo site_url('Member/edit/'.$id_member); ?>" class="btn btn-primary btn-xs" role="button">Edit </i></a></td>
 
                   </tr>
@@ -123,9 +123,5 @@
 </div>
 </div>
 
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>

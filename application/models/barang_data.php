@@ -37,5 +37,63 @@ class barang_data extends CI_Model{
 	$this->db->where($where);
 	$this->db->delete($table);
 }
+	
+	public function get_article_join(){
+    $query = $this->db->select('*')
+    ->from('transaksi')
+    ->join('barang', 'transaksi.id_barang = barang.id_barang')
+    // ->order_by('date_created', 'desc')
+    ->get();
+
+    return $query ;
+  }
+
+  public function get_article_join1(){
+     $this->db->select("*");
+            if($this->session->userdata('id_level') != 1){
+              $this->db->where('id_member',$this->session->userdata('id_member'));  
+            }
+            
+            return $this->db->get('pengembalian');
+  }
+
+
+  public function dropdown(){
+    $data = $this->db->select('id_barang, nama_barang')->from('barang')->get();
+    $data_select[''] = "Pilih Barang " ;
+    foreach ($data -> result() as $row) {
+      $data_select[$row->id_barang] = $row->nama_barang;
+    }
+    return $data_select;
+  }
+
+	public function get_all_barang($limit = FALSE, $offset = FALSE)
+   {  
+       if ( $limit ) {
+           $this->db->limit($limit, $offset);
+       }
+       // Urutkan berdasar abjad
+       $this->db->order_by('nama_barang');
+
+       $query = $this->db->get('barang');
+       return $query->result();
+   }
+
+  public function get_all_barang1()
+   {  
+       
+       $this->db->order_by('nama_barang');
+
+       $query = $this->db->get('barang');
+       return $query->result();
+   }
+
+   public function get_total()
+   {
+       // Dapatkan jumlah total artikel
+       return $this->db->count_all("barang");
+   }  
+
+
 
 }

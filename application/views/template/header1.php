@@ -26,6 +26,7 @@
 
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="<?php echo base_url('assets/css/style.css')?>"/>
+		<link href="<?php echo base_url().'assets/css/jquery.dataTables.min.css'?>" rel="stylesheet">
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -43,9 +44,12 @@
 				<div class="container">
 					<ul class="header-links pull-right">
 						<li><a href="#"><i class="fa fa-phone"></i> +021-95-51-84</a></li>
-						<li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
-						<li><a href="#"><i class="fa fa-user-o"></i>My Account</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> kelompok4@email.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> Poltek,Ngalam</a></li>
+						<br><br>
+						<div align="center">
+						<li><a href="<?php echo site_url('User/logout')?>"><button type="button" class="btn btn-info btn3d3">Logout</button></a></li></div>
+						<!-- <li><a href="#"><i class="fa fa-user-o"></i>My Account</a></li> -->
 					</ul>
 				</div>
 			</div>
@@ -68,7 +72,7 @@
 						<!-- /LOGO -->
 
 						<!-- SEARCH BAR -->
-						<div class="col-md-6">
+						<!-- <div class="col-md-6">
 							<div class="header-search">
 								<form>
 									<select class="input-select">
@@ -80,15 +84,15 @@
 									<button class="search-btn">Search</button>
 								</form>
 							</div>
-						</div>
+						</div> -->
 						<!-- /SEARCH BAR -->
 
 						<!-- ACCOUNT -->
-						<div class="col-md-3 clearfix">
+						<!-- <div class="col-md-3 clearfix">
 							<div class="header-ctn">
 
 								<!-- Cart -->
-								<div class="dropdown">
+								<!-- <div class="dropdown">
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 										<i class="fa fa-shopping-cart"></i>
 										<span>Your Cart</span>
@@ -127,14 +131,14 @@
 											<a href="#">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
 										</div>
 									</div>
-								</div>
+								</div> --> 
 								<!-- /Cart -->
 
 								<!-- Menu Toogle -->
 								<div class="menu-toggle">
 									<a href="#">
-										<i class="fa fa-bars"></i>
-										<span>Menu</span>
+										<!-- <i class="fa fa-bars"></i>
+										<span>Menu</span> -->
 									</a>
 								</div>
 								<!-- /Menu Toogle -->
@@ -158,21 +162,69 @@
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
-						<li><a href="<?php echo site_url('Barang/home')?>">Home</a></li>
-						<li><a href="#">Categories</a></li>
-						<li><a href="#">Accessories</a></li>
+						<!-- <li><a href="<?php echo site_url('Barang/home')?>">Home</a></li>
+						<li><a href="#">Accessories</a> -->
+						<?php
+                    if($this->session->userdata('id_level') == 1){
+                    ?>
+						<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"  href="#">Categories<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+            				<li><a href="<?php echo site_url('Category/create')?>">Buat kategori baru</a></li>
+            				<li><a href="<?php echo site_url('Category')?>">list kategori</a></li>
+         				 </ul>
+						</li>
+						<?php
+					}
+					?>
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Barang<span class="caret"></span></a>
      					 <ul class="dropdown-menu">
+     					 							<?php
+                    if($this->session->userdata('id_level') == 1){
+                    ?>
             				<li><a href="<?php echo site_url('Barang/create')?>">Buat barang baru</a></li>
+            				<?php
+					}
+					?>
             				<li><a href="<?php echo site_url('Barang')?>">list barang</a></li>
          				 </ul>
        				 </li>
+       				 <?php
+                    if($this->session->userdata('id_level') == 1){
+                    ?>
+            			
        				<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Member<span class="caret"></span></a>
 			      <ul class="dropdown-menu">
-			            <li><a href="<?php echo site_url('Member/create')?>">Buat Member baru</a></li>
+			            <li><a href="<?php echo site_url('Member/createadmin')?>">Buat Member baru</a></li>
 			            <li><a href="<?php echo site_url('Member')?>">list Member</a></li>
 			          </ul>
 			        </li>
+
+			        <?php
+					}
+					?>
+
+			        	
+			        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Transaksi<span class="caret"></span></a>
+			      <ul class="dropdown-menu">
+			      	<?php
+                    if($this->session->userdata('id_level') == 1){
+                    ?>
+			            <li><a href="<?php echo site_url('Transaksi/create')?>">Buat Transaksi baru</a></li>
+			         <?php
+					}
+					?>
+			            <li><a href="<?php echo site_url('Transaksi')?>">list Transaksi</a></li>
+			         <?php
+                    if($this->session->userdata('id_level') == 1){
+                    ?>
+			            <li><a href="<?php echo site_url('TransaksiKembali/create')?>">Barang Kembali</a></li>
+			             <?php
+					}
+					?>
+			            <li><a href="<?php echo site_url('TransaksiKembali')?>">List Barang Kembali</a></li>
+			          </ul>
+			        </li>
+			       
 					</ul>
 					<!-- /NAV -->
 				</div>
@@ -181,3 +233,16 @@
 			<!-- /container -->
 		</nav>
 		<!-- /NAVIGATION -->
+
+		   <?php if($this->session->flashdata('user_registered')): ?>
+         <?php echo '<div class="alert alert-success" role="alert">'.$this->session->flashdata('user_registered').'</div>'; ?>
+       <?php endif; ?>
+
+       <?php if($this->session->flashdata('login_failed')): ?>
+         <?php echo '<p class="alert alert-danger">'.$this->session->flashdata('login_failed').'</p>'; ?>
+       <?php endif; ?>
+
+        <?php if($this->session->flashdata('user_loggedout')): ?>
+         <?php echo '<p class="alert alert-success">'.$this->session->flashdata('user_loggedout').'</p>'; ?>
+       <?php endif; ?>
+

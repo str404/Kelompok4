@@ -1,45 +1,3 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>      
-		  </button>
-    <div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><img src="<?php echo base_url('assets/gambar/str/1.jpg"  alt="#" width="70" height"50"')?>" ></li>
-          <li><a href="<?php echo site_url('Welcome/Tugas')?>">&ensp;&ensp;&ensp;&ensp;Home</a></li>
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">&ensp;&ensp;&ensp;&ensp;Barang<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-            <li><a href="<?php echo site_url('Barang/create')?>">Buat barang baru</a></li>
-            <li><a href="<?php echo site_url('Barang')?>">list barang</a></li>
-          </ul>
-        </li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">&ensp;&ensp;&ensp;&ensp;Member<span class="caret"></span></a>
-      <ul class="dropdown-menu">
-            <li><a href="<?php echo site_url('Member/create')?>">Buat Member baru</a></li>
-            <li><a href="<?php echo site_url('Member')?>">list Member</a></li>
-          </ul>
-        </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
-
-<br />
-<br />
-<br />
-
-<h1 align="center" class="style2"><span class="navbar-inverse "><span class="text-danger style9">Blog</span></h1>
-
-<br />
-<br />
-
-
-
 <div class="container-fluid">
 <div class="transbox">
   <div align="center" class="style7">
@@ -82,8 +40,19 @@
         	<td><input type="text" name="password" value="<?php echo $i->password ?>"></td>
       		</tr>
       		<tr style="height: 50px;">
-        	<td>Prioritas :</td>
-        	<td><input type="text" name="prioritas" value="<?php echo $i->prioritas ?>"></td>
+        	<div class="form-group">
+        		<td>Prioritas : </td>
+        		 	<div class="form-check">
+        		<td><input class="form-check-input" type="radio" name="id_level" id="freemember" value="3" checked>
+        			<label class="form-check-label" for="freemember">free Member</label>
+        			</div>
+        			<br>
+        			<div class="form-check">
+        			<input class="form-check-input" type="radio" name="id_level" id="paidmember" value="2">
+        			<label class="form-check-label" for="paidmember">Paid Member</label>
+        			</div>
+			    </div>
+			</td>
       		</tr>
 			
 			<tr>
